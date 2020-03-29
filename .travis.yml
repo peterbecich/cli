@@ -18,6 +18,15 @@ addons:
       - fasttree
       - vcftools
       - snakemake
+  homebrew:
+    update: true
+    packages:
+      - mafft
+      # - iqtree
+      - raxml
+      # - fasttree
+      - vcftools
+      - snakemake
 
 matrix:
   include:
@@ -56,6 +65,26 @@ matrix:
     - dist: bionic
       python: 3.8-dev
       name: "Ubuntu Bionic, Python 3.8-dev"
+
+    - os: osx
+      osx_image: xcode11.3
+      python: 3.6
+      name: "macOS, Python 3.6"
+
+    - os: osx
+      osx_image: xcode11.3
+      python: 3.7
+      name: "macOS, Python 3.7"
+
+    - os: osx
+      osx_image: xcode11.3
+      python: 3.8
+      name: "macOS, Python 3.8"
+
+    - os: osx
+      osx_image: xcode11.3
+      python: 3.8-dev
+      name: "macOS, Python 3.8-dev"
 
 install:
   - pip3 install .
